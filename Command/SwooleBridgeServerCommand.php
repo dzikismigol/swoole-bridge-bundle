@@ -3,6 +3,7 @@
 namespace Insidestyles\SwooleBridgeBundle\Command;
 
 use Insidestyles\SwooleBridge\Handler;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -10,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class SwooleBridgeServerCommand
  * @package Insidestyles\SwooleBridgeBundle\Command
  */
-final class SwooleBridgeServerCommand
+final class SwooleBridgeServerCommand extends Command
 {
     /**
      * @var Handler
@@ -32,6 +33,8 @@ final class SwooleBridgeServerCommand
         $this->handler = $handler;
         $this->host    = $host;
         $this->port    = $port;
+
+        parent::__construct();
     }
 
     protected function configure()
